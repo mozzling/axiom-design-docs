@@ -1,5 +1,5 @@
 ---
-component-name: Button
+component-name: Menu
 introduction: A nice long introduction
 section:
   title: Heriachery
