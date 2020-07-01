@@ -2,6 +2,6 @@
 component-name: sections
 introduction: i love sections
 section:
-  section-1:
-    introduction: my section introduction
+  section-2:
+    introduction: my other section introduction
 ---
