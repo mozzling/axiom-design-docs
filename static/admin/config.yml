@@ -1,8 +1,6 @@
 backend:
   name: github
   repo: lpoulter/axiom-design-docs
-  open_authoring: true
-publish_mode: editorial_workflow
 
 media_folder: static/assets
 public_folder: /assets
@@ -16,10 +14,4 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Component Name", name: "component-name", widget: "string"}
       - {label: "Introduction", name: "introduction", widget: "text"}
-      - label: "Section"
-        name: "section"
-        widget: "object"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Introduction", name: "introduction", widget: "text"}
-          - {label: "Image", name: "image", widget: "image"}
+      - {label: "Section", name: "section", widget: "section-widget"}

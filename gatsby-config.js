@@ -6,7 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/static/admin/sectionWidget/index.js`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
