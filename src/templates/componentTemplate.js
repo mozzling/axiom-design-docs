@@ -19,11 +19,12 @@ export default function ComponentTemplate({
         />
         {Object.entries(frontmatter.section).map(([key, value]) => {
           if (!value) return null
-          return (
-            <div>
+          if (value.title)
+            return (
               <SectionTitle title={value.title} content={value.introduction} />
-              <ImageWithCopy img={value.image} content={value.introduction} />
-            </div>
+            )
+          return (
+            <ImageWithCopy img={value.image} content={value.introduction} />
           )
         })}
       </div>
@@ -42,18 +43,37 @@ export const pageQuery = graphql`
           section_1 {
             title
             introduction
+            image
           }
           section_2 {
             title
             introduction
+            image
           }
           section_3 {
             title
             introduction
+            image
           }
           section_4 {
             title
             introduction
+            image
+          }
+          section_5 {
+            title
+            introduction
+            image
+          }
+          section_6 {
+            title
+            introduction
+            image
+          }
+          section_7 {
+            title
+            introduction
+            image
           }
         }
       }

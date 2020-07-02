@@ -96,7 +96,7 @@ class Section extends React.Component {
           />
         </label>
         <label>
-          Introduction:s
+          Introduction:
           <input
             type="text"
             className={classNameWrapper}

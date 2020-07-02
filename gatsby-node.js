@@ -12,6 +12,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       section_2: Section
       section_3: Section
       section_4: Section
+      section_5: Section
+      section_6: Section      
+      section_7: Section     
     }
     type Section implements Node {
       title: String
