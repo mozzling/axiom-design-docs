@@ -5,6 +5,6 @@ introduction: Progress is used to give visual feedback for a task that will
 section:
   section_1:
     title: Anatomy
-  section-2:
+  section_2:
     title: Variations
 ---

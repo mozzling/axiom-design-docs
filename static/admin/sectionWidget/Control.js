@@ -29,7 +29,7 @@ export default class Control extends React.Component {
           onClick={() =>
             this.setState(prevState => ({
               sections: prevState.sections.concat(
-                `section-${prevState.sections.length + 1}`
+                `section_${prevState.sections.length + 1}`
               ),
             }))
           }
