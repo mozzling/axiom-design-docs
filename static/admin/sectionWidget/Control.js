@@ -12,14 +12,16 @@ export default class Control extends React.Component {
 
   constructor(props) {
     super(props)
-
-    this.state = { sections: [] }
+    const numberSections = Map.isMap(this.props.value) && this.props.value.size
+    let sections = [];
+    if(numberSections) sections = Object.keys(this.props.value.toObject());
+    this.state = { sections }
   }
 
   render() {
     const { forID, value = Map(), onChange, classNameWrapper } = this.props
     const { sections } = this.state
-    const numberSections = Map.isMap(value) && value.size
+    
 
     return (
       <div id={forID}>
