@@ -8,7 +8,7 @@ export default function ComponentTemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter } = markdownRemark
   console.log("frontmatter", frontmatter)
   return (
     <div className="blog-post-container">
@@ -34,7 +34,6 @@ export default function ComponentTemplate({
 export const pageQuery = graphql`
   query($component_name: String!) {
     markdownRemark(frontmatter: { component_name: { eq: $component_name } }) {
-      html
       frontmatter {
         title
         component_name
