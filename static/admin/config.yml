@@ -1,7 +1,9 @@
 backend:
   name: github
   repo: lpoulter/axiom-design-docs
+  open_authoring: true
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
 
