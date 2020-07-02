@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { Map, setIn, has, update, updateIn } from "immutable"
+import { Map, setIn, has, updateIn } from "immutable"
 
 export default class Control extends React.Component {
   static propTypes = {
@@ -12,24 +12,16 @@ export default class Control extends React.Component {
 
   constructor(props) {
     super(props)
-
-    this.state = { sections: [] }
+    const numberSections = Map.isMap(this.props.value) && this.props.value.size
+    let sections = [];
+    if(numberSections) sections = Object.keys(this.props.value.toObject());
+    this.state = { sections }
   }
 
   render() {
-    const {
-      forID,
-      value = Map(),
-      onChange,
-      classNameWrapper,
-      ...rest
-    } = this.props
+    const { forID, value = Map(), onChange, classNameWrapper } = this.props
     const { sections } = this.state
-    const numberSections = Map.isMap(value) && value.size
-    console.log("numberSections", numberSections)
-    // console.log("Map.isMap(value)", Map.isMap(value))
-    console.log("value", value.toObject())
-    // console.log("value", typeof value)
+    
 
     return (
       <div id={forID}>
@@ -37,7 +29,7 @@ export default class Control extends React.Component {
           onClick={() =>
             this.setState(prevState => ({
               sections: prevState.sections.concat(
-                `section-${prevState.sections.length + 1}`
+                `section_${prevState.sections.length + 1}`
               ),
             }))
           }
@@ -57,24 +49,11 @@ export default class Control extends React.Component {
   }
 }
 
-function getSectionKeys(value) {
-  debugger
-  return Object.fromEntries(
-    Object.entries(value).filter(([key]) => {
-      return key.startsWith("section-")
-    })
-  )
-}
-
 class Section extends React.Component {
   render() {
-    const { value, onChange, classNameWrapper, sectionId, field } = this.props
-    // console.log("introduction", value.get("section-1").get("introduction"))
-    // console.log("field", this.props.value && Map.isMap(this.props.value))
-    // console.log("getSectionKeys", getSectionKeys(value))
+    const { value, onChange, classNameWrapper, sectionId } = this.props
 
     const getValue = fieldName => {
-      // debugger
       if (Map.isMap(value)) {
         if (value.get(sectionId)) {
           return value.get(sectionId).get(fieldName)
@@ -86,7 +65,7 @@ class Section extends React.Component {
 
     const titleValue = getValue("title")
     const introductionValue = getValue("introduction")
-    // const sectionValue = value.set(sectionId)
+
     return (
       <div>
         <div>{sectionId}</div>
@@ -98,13 +77,11 @@ class Section extends React.Component {
             value={titleValue}
             onChange={e => {
               if (has(value, sectionId)) {
-                console.log("has sectionId", sectionId)
                 const nv = updateIn(
                   value,
-                  [sectionId, 'title'],
-                  val => e.target.value
+                  [sectionId, "title"],
+                  () => e.target.value
                 )
-                console.log('new value', nv.toObject)
                 onChange(nv)
               } else {
                 const nv = setIn(
@@ -113,7 +90,6 @@ class Section extends React.Component {
                   Map({ title: e.target.value })
                 )
 
-                console.log("new value", nv.toObject())
                 onChange(nv)
               }
             }}
@@ -127,13 +103,12 @@ class Section extends React.Component {
             value={introductionValue}
             onChange={e => {
               if (has(value, sectionId)) {
-                console.log("has sectionId", sectionId)
                 const nv = updateIn(
                   value,
-                  [sectionId, 'introduction'],
-                  val => e.target.value
+                  [sectionId, "introduction"],
+                  () => e.target.value
                 )
-                console.log('new value', nv.toObject)
+
                 onChange(nv)
               } else {
                 const nv = setIn(
@@ -142,7 +117,6 @@ class Section extends React.Component {
                   Map({ introduction: e.target.value })
                 )
 
-                console.log("new value", nv.toObject())
                 onChange(nv)
               }
             }}
@@ -152,5 +126,3 @@ class Section extends React.Component {
     )
   }
 }
-
-//onChange(Map(value).get(sectionId).set('introduction', e.target.value))
