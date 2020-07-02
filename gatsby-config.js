@@ -6,7 +6,20 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/_posts/component`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/static/admin/sectionWidget/index.js`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
