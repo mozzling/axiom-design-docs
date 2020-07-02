@@ -11,7 +11,7 @@ import {
 
 import "./axiom-docs.css"
 
-export default function ImageWithCopy({ imageAlign, title, content, img }) {
+export default function ImageWithCopy({ imageAlign ="left", title, content, img }) {
   function ImageBlock() {
     return (
       <Base className="image-right__img">
