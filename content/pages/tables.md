@@ -29,14 +29,6 @@ sections:
         image: screenshot-2020-07-03-at-17.29.51.png
         alt: interaction states
   - type: block_list
-    title: Interaction States
-    blocks:
-      - title: Hover
-        text: All table rows have a hover effect, regardless if they are clickable, the
-          visual change helps readability of the table.
-        image: screenshot-2020-07-03-at-17.30.50.png
-        alt: over affect on table row
-  - type: block_list
     title: Sizes
     blocks:
       - title: Table Cell Sizes

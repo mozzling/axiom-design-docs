@@ -7,12 +7,17 @@ import {
   GridCell,
   Image,
   Strong,
+  Paragraph,
 } from "@brandwatch/axiom-components"
-import Img from "gatsby-image"
 
 import "./axiom-docs.css"
 
-export default function ImageWithCopy({ imageAlign ="left", title, content, img }) {
+export default function ImageWithCopy({
+  imageAlign = "left",
+  title,
+  content,
+  img,
+}) {
   function ImageBlock() {
     return (
       <Base className="image-right__img">
@@ -22,12 +27,15 @@ export default function ImageWithCopy({ imageAlign ="left", title, content, img 
   }
 
   function ContentBlock() {
+    const formattedContent = content.split("\n")
     return (
       <Base className="image-right-content">
         <Heading textSize="headtitle">
           <Strong>{title}</Strong>
         </Heading>
-        <Heading>{content}</Heading>
+        {formattedContent.map(content => (
+          <Paragraph>{content}</Paragraph>
+        ))}
       </Base>
     )
   }
