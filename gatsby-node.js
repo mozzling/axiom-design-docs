@@ -47,7 +47,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         edges {
           node {
             frontmatter {
-              component_name              
+              component_name
             }
           }
         }
@@ -62,9 +62,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log("Building page for: ", node.frontmatter)
+    console.log(
+      "Building page for: ",
+      node.frontmatter["component_name"].trim().toLowerCase()
+    )
+
     createPage({
-      path: node.frontmatter["component_name"].toLowerCase(),
+      path: node.frontmatter["component_name"].trim().toLowerCase(),
       component: componentTemplate,
       context: {
         // additional data can be passed via context

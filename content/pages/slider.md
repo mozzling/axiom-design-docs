@@ -16,7 +16,7 @@ sections:
 
           D) Track 
 
-          E) Input \[link]
+          E) Input
         image: /assets/anatomy.png
         alt: labeled slider
   - type: block_list
