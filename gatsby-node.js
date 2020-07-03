@@ -22,7 +22,6 @@ exports.createSchemaCustomization = ({ actions }) => {
   }
 
   type MarkdownRemarkFrontmatter {    
-    main_ipost_typentroduction: String
     component_name: String
     title: String
     main_introduction: String
@@ -63,9 +62,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log("node.frontmatter", node.frontmatter)
+    console.log("Building page for: ", node.frontmatter)
     createPage({
-      path: node.frontmatter["component_name"],
+      path: node.frontmatter["component_name"].toLowerCase(),
       component: componentTemplate,
       context: {
         // additional data can be passed via context

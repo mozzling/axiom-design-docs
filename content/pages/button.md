@@ -4,8 +4,6 @@ component_name: Button
 main_introduction: Buttons trigger an action. They describe the action using
   text, an icon, or a combination of both.
 title: Button
-component_introduction: Buttons trigger an action. They describe the action
-  using text, an icon, or a combination of both.
 sections:
   - type: block_list
     title: Anatomy

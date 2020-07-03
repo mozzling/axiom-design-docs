@@ -2,7 +2,7 @@
 post_type: page
 component_name: Slider
 title: Slider
-component_introduction: Sliders allow the user to pick a value between a range of values.
+main_introduction: Sliders allow the user to pick a value between a range of values.
 sections:
   - type: block_list
     title: Anatomy

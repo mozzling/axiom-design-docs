@@ -4,8 +4,6 @@ title: Tables
 main_introduction: Tables are used to display information that allows users to
   quickly scan, sort and compare data.
 component_name: Tables
-component_introduction: Tables are used to display information that allows users
-  to   quickly scan, sort and compare data.
 sections:
   - type: block_list
     title: Anatomy
