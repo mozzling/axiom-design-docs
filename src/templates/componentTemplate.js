@@ -42,13 +42,7 @@ export const pageQuery = graphql`
     blocks {
       title
       text
-      image {
-        childImageSharp {
-          fluid(maxHeight: 700, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
+      image
       alt
     }
   }

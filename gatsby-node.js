@@ -11,7 +11,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   type BlockList {
     title: String
     text: String
-    image: File
+    image: String
     alt: String
   }
   
