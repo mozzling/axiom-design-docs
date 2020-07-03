@@ -8,12 +8,39 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: "component" # Used in routes, e.g., /admin/collections/blog
-    label: "Component" # Used in the UI
-    folder: "_posts/component" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{component-name}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Component Name", name: "component_name", widget: "string"}
-      - {label: "Introduction", name: "introduction", widget: "text"}
-      - {label: "Section", name: "section", widget: "section-widget"}
+  - name: pages
+    label: "Page"
+    folder: "content/pages"
+    media_folder: ''
+    public_folder: ''
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    fields:
+      - { label: "post_type", name: "post_type", widget: "hidden", default: "page" }
+      - { label: "Title", name: "component_name", widget: "string" }
+      - { label: "Short Introduction", name: "component_introduction", widget: "string" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - label: 'Page Section'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - label: 'Text Block'
+            name: 'text_block'
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: markdown }
+          - label: 'Block List'
+            name: 'block_list'
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Text, name: text, widget: markdown, required: false }
+              - label: 'Blocks'
+                name: blocks
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Text, name: text, widget: markdown, required: false }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: Image Description, name: alt, widget: string }

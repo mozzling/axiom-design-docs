@@ -1,6 +1,6 @@
 ---
 component_name: Buttons
-introduction: Buttons trigger an action. They describe the action using text, an
+component_introduction: Buttons trigger an action. They describe the action using text, an
   icon, or a combination of both.
 section:
   section_1:
