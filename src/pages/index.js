@@ -39,17 +39,9 @@ export const pageQuery = graphql`
     allMarkdownRemark {
       edges {
         node {
-          id
           frontmatter {
-            title
             component_name
-            introduction
-            section {
-              section_1 {
-                title
-                introduction
-              }
-            }
+            main_introduction
           }
         }
       }

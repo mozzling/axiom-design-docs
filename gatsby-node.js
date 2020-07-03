@@ -8,18 +8,26 @@
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type MarkdownRemarkFrontmatterSection implements Node {
-      section_2: Section
-      section_3: Section
-      section_4: Section
-      section_5: Section
-      section_6: Section      
-      section_7: Section     
-    }
-    type Section implements Node {
-      title: String
-      introduction: String
-    }
+  type BlockList {
+    title: String
+    text: String
+    image: String
+    alt: String
+  }
+  
+  type Sections {
+    type: String
+    title: String
+    blocks: [BlockList]
+  }
+
+  type MarkdownRemarkFrontmatter {    
+    main_ipost_typentroduction: String
+    component_name: String
+    title: String
+    main_introduction: String
+    sections: [Sections]
+  }
   `
   createTypes(typeDefs)
 }
@@ -40,7 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         edges {
           node {
             frontmatter {
-              component_name
+              component_name              
             }
           }
         }

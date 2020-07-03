@@ -8,6 +8,7 @@ import {
   Image,
   Strong,
 } from "@brandwatch/axiom-components"
+import Img from "gatsby-image"
 
 import "./axiom-docs.css"
 
