@@ -25,18 +25,12 @@ collections:
         name: 'sections'
         widget: 'list'
         types:
-          - label: 'Text Block'
-            name: 'text_block'
-            widget: object
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: markdown }
           - label: 'Block List'
             name: 'block_list'
             widget: object
             fields:
               - { label: Title, name: title, widget: string, required: false }
-              - { label: Text, name: text, widget: markdown, required: false }
+              - { label: Section Introduction, name: section_introduction, widget: string, required: false }
               - label: 'Blocks'
                 name: blocks
                 widget: list

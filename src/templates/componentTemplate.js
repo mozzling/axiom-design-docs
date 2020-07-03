@@ -15,7 +15,7 @@ export default function ComponentTemplate({
     <div className="blog-post-container">
       <div className="blog-post">
         <PageHeading
-          title={frontmatter.component_name}
+          title={frontmatter.title}
           content={frontmatter.main_introduction}
         />
         {frontmatter.sections.map(({ title, blocks, text }) => {
