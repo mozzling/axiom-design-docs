@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import PageHeading from "../axiom-docs/PageHeading"
 import SectionTitle from "../axiom-docs/SectionTitle"
 import ImageWithCopy from "../axiom-docs/ImageWithCopy"
@@ -15,16 +16,18 @@ export default function ComponentTemplate({
       <div className="blog-post">
         <PageHeading
           title={frontmatter.component_name}
-          content={frontmatter.introduction}
+          content={frontmatter.main_introduction}
         />
-        {Object.entries(frontmatter.section).map(([key, value]) => {
-          if (!value) return null
-          if (value.title)
-            return (
-              <SectionTitle title={value.title} content={value.introduction} />
-            )
+        {frontmatter.sections.map(({ title, blocks, text }) => {
           return (
-            <ImageWithCopy img={value.image} content={value.introduction} />
+            <div>
+              <SectionTitle title={title} content={text} />
+              {blocks.map(({ title, text, image }) => (
+                <div>      
+                  <ImageWithCopy title={title} content={text} img={image} />
+                </div>
+              ))}
+            </div>
           )
         })}
       </div>
@@ -33,48 +36,31 @@ export default function ComponentTemplate({
 }
 
 export const pageQuery = graphql`
+  fragment BlockList on Sections {
+    type
+    title
+    blocks {
+      title
+      text
+      image {
+        childImageSharp {
+          fluid(maxHeight: 700, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      alt
+    }
+  }
+
   query($component_name: String!) {
     markdownRemark(frontmatter: { component_name: { eq: $component_name } }) {
       frontmatter {
         title
         component_name
-        introduction
-        section {
-          section_1 {
-            title
-            introduction
-            image
-          }
-          section_2 {
-            title
-            introduction
-            image
-          }
-          section_3 {
-            title
-            introduction
-            image
-          }
-          section_4 {
-            title
-            introduction
-            image
-          }
-          section_5 {
-            title
-            introduction
-            image
-          }
-          section_6 {
-            title
-            introduction
-            image
-          }
-          section_7 {
-            title
-            introduction
-            image
-          }
+        main_introduction
+        sections {
+          ...BlockList
         }
       }
     }
