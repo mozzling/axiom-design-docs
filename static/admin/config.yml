@@ -12,7 +12,7 @@ collections:
     label: "Page"
     folder: "content/pages"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    slug: "{{component-name}}"
     fields:
       - { label: "post_type", name: "post_type", widget: "hidden", default: "page" }
       - { label: "Component Name", name: "component_name", widget: "string" }
