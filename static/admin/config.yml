@@ -11,8 +11,6 @@ collections:
   - name: pages
     label: "Page"
     folder: "content/pages"
-    media_folder: ''
-    public_folder: ''
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
     fields:
