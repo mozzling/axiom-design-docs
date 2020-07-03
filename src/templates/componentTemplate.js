@@ -1,36 +1,34 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import PageHeading from "../axiom-docs/PageHeading"
 import SectionTitle from "../axiom-docs/SectionTitle"
 import ImageWithCopy from "../axiom-docs/ImageWithCopy"
+import "./component-template.css"
 
 export default function ComponentTemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter } = markdownRemark
-  console.log("frontmatter", frontmatter)
+
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <PageHeading
-          title={frontmatter.title}
-          content={frontmatter.main_introduction}
-        />
-        {frontmatter.sections.map(({ title, blocks, text }) => {
-          return (
-            <div>
-              <SectionTitle title={title} content={text} />
-              {blocks.map(({ title, text, image }) => (
-                <div>      
-                  <ImageWithCopy title={title} content={text} img={image} />
-                </div>
-              ))}
-            </div>
-          )
-        })}
-      </div>
+    <div className="body">
+      <PageHeading
+        title={frontmatter.title}
+        content={frontmatter.main_introduction}
+      />
+      {frontmatter.sections.map(({ title, blocks, text }) => {
+        return (
+          <div className='section-title'>
+            <SectionTitle title={title} content={text} />
+            {blocks.map(({ title, text, image }) => (
+              <div>
+                <ImageWithCopy title={title} content={text} img={image} />
+              </div>
+            ))}
+          </div>
+        )
+      })}
     </div>
   )
 }

@@ -1,16 +1,20 @@
-.component-test-container {
-  margin: 50px 150px 0 150px;
-}
-
+/* this can probably go in the near future - only seems to be used in a test file */
 .component-test-container > * {
+  padding: 60px;
   margin: 10px 0 60px 0;
 }
 
-.image-right__img {
-  background-color: lightgrey;
-  height: 100%;
+.image-block {
+  margin: 20px 0 20px 0;
 }
 
-.image-right-content {
+.content-block {
   margin: 20px 0 20px 0;
+}
+
+.page-heading {
+  margin: 10px 0 30px 0;
+  text-align: left;
+  color: #303138;
+  font-size: 30px;
 }
