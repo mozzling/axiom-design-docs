@@ -20,7 +20,7 @@ export default function ImageWithCopy({
 }) {
   function ImageBlock() {
     return (
-      <Base className="image-right__img">
+      <Base className="image-block">
         <Image src={img}></Image>
       </Base>
     )
@@ -29,7 +29,7 @@ export default function ImageWithCopy({
   function ContentBlock() {
     const formattedContent = content.split("\n")
     return (
-      <Base className="image-right-content">
+      <Base className="content-block">
         <Heading textSize="headtitle">
           <Strong>{title}</Strong>
         </Heading>
@@ -41,7 +41,7 @@ export default function ImageWithCopy({
   }
 
   return (
-    <Base className="image-right__container">
+    <Base className="image-with-copy-container">
       <Grid>
         <GridCell>
           {imageAlign === "right" ? <ContentBlock /> : <ImageBlock />}
