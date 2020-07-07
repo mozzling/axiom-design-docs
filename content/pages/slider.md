@@ -23,7 +23,7 @@ sections:
     title: Variations
     blocks:
       - title: Slider
-        text: Used to select a single value between a range.
+        text: Used to select a single value between a range or ranges.
         image: /assets/variatinos-slider.png
         alt: Slider
       - title: Range
