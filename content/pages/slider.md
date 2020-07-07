@@ -8,7 +8,7 @@ sections:
     title: Anatomy
     blocks:
       - text: |-
-          A) Fill 
+          A) Filller
 
           B) Label 
 
@@ -23,7 +23,7 @@ sections:
     title: Variations
     blocks:
       - title: Slider
-        text: Used to select a single value between a range or ranges.
+        text: Used to select a single value between a range.
         image: /assets/variatinos-slider.png
         alt: Slider
       - title: Range
