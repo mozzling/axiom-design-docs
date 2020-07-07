@@ -8,7 +8,7 @@ sections:
     title: Anatomy
     blocks:
       - text: |-
-          A) Filller
+          A) Fill
 
           B) Label 
 
