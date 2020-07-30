@@ -1,0 +1,123 @@
+.icon {
+  color: var(--color-product-crash-course--active);
+  float: right;
+}
+
+.App--hide-mentions {
+  grid-template-columns:
+    minmax(200px, 270px)
+    minmax(600px, auto)
+    0;
+}
+
+.HeaderNav {
+  grid-area: header-nav;
+}
+
+.Header {
+  grid-area: header;
+}
+
+.DatePicker {
+  grid-area: date-picker;
+}
+
+.DateScrubber {
+  grid-area: date-scrubber;
+}
+
+.App__sidebar {
+  grid-area: sidebar;
+}
+
+.App__pages {
+  grid-area: pages;
+}
+
+.Mentions {
+  grid-area: mention;
+}
+
+.App__pages,
+.App__sidebar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 15rem;
+}
+
+.Mentions {
+  overflow: hidden;
+}
+
+.sidebar_ {
+  min-height: 100vh;
+  border-right: 1px grey solid;
+  padding-top: var(--page-padding-vertical);
+  padding-bottom: var(--page-padding-vertical);
+  padding-left: var(--gutter-width);
+  padding-right: var(--gutter-width);
+}
+
+@media screen and (max-width: 1200px) {
+  .sidebar_ {
+    padding-left: 0;
+  }
+}
+
+.sidebar__header {
+  /* axiom doesn't allow textUnderline on headtitle text size */
+  border-bottom: var(--component-border-width) solid var(--color-theme-border);
+  margin-left: 4px;
+  text-transform: uppercase;
+}
+
+.sidebar_ ul,
+.sidebar_ li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar__header,
+.sidebar__link {
+  padding: var(--spacing-grid-size--x2) var(--page-padding-horizontal);
+}
+
+.sidebar__link {
+  display: block;
+  text-decoration: none;
+  color: var(--color-theme-text--subtle);
+  border-left: var(--spacing-grid-size--x1) solid transparent;
+}
+
+.sidebar__link:hover {
+  background-color: var(--color-theme-background--shade-2);
+}
+
+.sidebar__link.active {
+  background-color: var(--color-theme-background--shade-2);
+  font-weight: var(--font-weight-bold);
+  border-left: var(--spacing-grid-size--x1) solid var(--color-ui-accent--hover);
+  color: var(--color-ui-accent);
+}
+
+.sidebar__link.unavailable,
+.sidebar__link.unavailable:hover,
+.sidebar__link.unavailable:active {
+  color: var(--color-theme-text--disabled);
+  background: none;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.sidebar__link.unavailable:active::after {
+  position: absolute;
+  content: "Coming soon";
+  top: calc(50% - 15px);
+  background: #3f3f3f;
+  display: inline;
+  padding: 4px 10px;
+  color: #f8f8f8;
+  border-radius: 3px;
+  margin-left: 5px;
+}
