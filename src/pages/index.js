@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
     <Base className="home-nav-container ax-theme--day">
       <SideNav documents={documentNames} />
       <Base className="home-content">
-        <Button style={{ float: "right", margin: "20px 20px 0 0" }}>
+        <Button style={{ float: "right", margin: "20px 20px 0 0" }} onClick={() => window.location.href='/admin'}>
           Edit this page
         </Button>
         <Base className="home-heading">
