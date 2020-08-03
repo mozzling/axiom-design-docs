@@ -27,7 +27,7 @@ export default function ImageWithCopy({
   }
 
   function ContentBlock() {
-    const formattedContent = content.split("\n")
+    const formattedContent = content?.split("\n") || [];
     return (
       <Base className="content-block">
         <Heading textSize="headtitle">
