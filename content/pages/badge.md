@@ -26,4 +26,14 @@ sections:
           data point in a chart.
         image: /assets/badges-positioning-1.png
       - image: /assets/badges-positioning-2.png
+  - type: block_list
+    title: Variations
+    section_introduction: ""
+    blocks:
+      - title: Notification badge
+        text: Notification badges alert users to cumulative related actionable items,
+          such as unread messages. When the user performs an action related to
+          the badge, the count should reduce accordingly.
+        image: /assets/badges-variations-1.png
+      - image: /assets/badges-variations-2.png
 ---
