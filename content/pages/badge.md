@@ -42,8 +42,9 @@ sections:
       - title: Badges vs. Lozenges
         text: >-
           Badges show counts using numerical figures only, with the exception of
-          mathmatical symbols such as “+” , ”-“ and ”%” and number abbreviations
-          such as “k” and “m”. For more guidance see \[number formats]
+          mathematical symbols such as “+” , ”-“ and ”%” and number
+          abbreviations such as “k” and “m”. For more guidance see \[number
+          formats]
 
 
           \[Lozenges] highlight an item's attributes or status and can use alphanumeric characters.
